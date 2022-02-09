@@ -69,18 +69,58 @@
 # Delete existing data, so you'll start fresh each time this script is run.
 # Use `Model.destroy_all` code.
 # TODO!
-
+Movie.destroy_all
+TopCast.destroy_all
 # Generate models and tables, according to the domain model
 # TODO!
+
+# rails generate model Movie /( in terminal )
+# rails generate model Top_Cast / (in terminal)
+# rails db:migrate / (in terminal)
 
 # Insert data into your database that reflects the sample data shown above
 # Do not use hard-coded foreign key IDs.
 # TODO!
+puts Movie.all.count
+
+values = {
+        movie_name: "Batman Begins",
+        year: "2005",
+        rate: "PG-13",
+        director: "Christopher Nolan" 
+}
+movie = Movie.new(values)
+movie.save
+
+values = {
+        movie_name: "The Dark Knight",
+        year: "2008",
+        rate: "PG-13",
+        director: "Christopher Nolan" 
+}
+movie = Movie.new(values)
+movie.save
+
+values = {
+        movie_name: "The Dark Knight Rises",
+        year: "2012",
+        rate: "PG-13",
+        director: "Christopher Nolan" 
+}
+movie = Movie.new(values)
+movie.save
 
 # Prints a header for the movies output
+.mode columns
 puts "Movies"
 puts "======"
 puts ""
+
+movies = Movie.all
+
+for movie in movies
+    puts "#{movie.movie_name}    #{movie.year}    #{movie.rate}    #{movie.director}"
+end
 
 # Query the movies data and loop through the results to display the movies output
 # TODO!
