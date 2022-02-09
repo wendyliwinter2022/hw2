@@ -81,7 +81,7 @@ TopCast.destroy_all
 # Insert data into your database that reflects the sample data shown above
 # Do not use hard-coded foreign key IDs.
 # TODO!
-puts Movie.all.count
+
 
 values = {
         movie_name: "Batman Begins",
@@ -110,8 +110,21 @@ values = {
 movie = Movie.new(values)
 movie.save
 
+# insert top casts
+movie = Movie.where({movie_name: "Batman Begins"})[0]
+
+cast = TopCast.new
+cast.movie_id = "#{movie.id}"
+cast.star_name = "Michael Caine"
+cast.role = "Alfred"
+cast.save
+
+cast.movie_id = "#{movie.id}"
+cast.star_name = "Liam Neeson"
+cast.role = "Ra's Al Ghul"
+cast.save
+
 # Prints a header for the movies output
-.mode columns
 puts "Movies"
 puts "======"
 puts ""
@@ -130,6 +143,14 @@ puts ""
 puts "Top Cast"
 puts "========"
 puts ""
+
+
+for movie in movies
+    casts = TopCast.where(movie_id: movie.id)
+    for cast in casts
+        puts "#{movie.movie_name}   #{cast.star_name}    #{cast.role} "
+    end
+end
 
 # Query the cast data and loop through the results to display the cast output for each movie
 # TODO!
