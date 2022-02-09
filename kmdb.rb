@@ -115,13 +115,32 @@ movie = Movie.where({movie_name: "Batman Begins"})[0]
 
 cast = TopCast.new
 cast.movie_id = "#{movie.id}"
+cast.star_name = "Christian Bale"
+cast.role = "Bruce Wayne"
+cast.save
+
+cast = TopCast.new
+cast.movie_id = "#{movie.id}"
 cast.star_name = "Michael Caine"
 cast.role = "Alfred"
 cast.save
 
+cast = TopCast.new
 cast.movie_id = "#{movie.id}"
 cast.star_name = "Liam Neeson"
 cast.role = "Ra's Al Ghul"
+cast.save
+
+cast = TopCast.new
+cast.movie_id = "#{movie.id}"
+cast.star_name = "Katie Holmes"
+cast.role = "Rachel Dawes"
+cast.save
+
+cast = TopCast.new
+cast.movie_id = "#{movie.id}"
+cast.star_name = "Gary Oldman"
+cast.role = "Commissioner Gordon"
 cast.save
 
 # Prints a header for the movies output
