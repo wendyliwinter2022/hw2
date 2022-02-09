@@ -216,14 +216,15 @@ puts "Movies"
 puts "======"
 puts ""
 
-movies = Movie.all
 
+# Query the movies data and loop through the results to display the movies output
+# TODO!
+
+movies = Movie.all
 for movie in movies
     puts "#{movie.movie_name}    #{movie.year}    #{movie.rate}    #{movie.director}"
 end
 
-# Query the movies data and loop through the results to display the movies output
-# TODO!
 
 # Prints a header for the cast output
 puts ""
@@ -232,12 +233,11 @@ puts "========"
 puts ""
 
 
+# Query the cast data and loop through the results to display the cast output for each movie
+# TODO!
 for movie in movies
     casts = TopCast.where(movie_id: movie.id)
     for cast in casts
         puts "#{movie.movie_name}   #{cast.star_name}    #{cast.role} "
     end
 end
-
-# Query the cast data and loop through the results to display the cast output for each movie
-# TODO!
