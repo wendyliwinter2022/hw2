@@ -70,6 +70,7 @@
 # Use `Model.destroy_all` code.
 # TODO!
 Movie.destroy_all
+
 TopCast.destroy_all
 # Generate models and tables, according to the domain model
 # TODO!
@@ -142,6 +143,73 @@ cast.movie_id = "#{movie.id}"
 cast.star_name = "Gary Oldman"
 cast.role = "Commissioner Gordon"
 cast.save
+
+movie = Movie.where({movie_name: "The Dark Knight"})[0]
+
+cast = TopCast.new
+cast.movie_id = "#{movie.id}"
+cast.star_name = "Christian Bale"
+cast.role = "Bruce Wayne"
+cast.save
+
+cast = TopCast.new
+cast.movie_id = movie.id
+cast.star_name = "Heath Ledger"
+cast.role = "Joker"
+cast.save
+
+cast = TopCast.new
+cast.movie_id = movie.id
+cast.star_name = "Aaron Eckhart"
+cast.role = "Harvey Dent"
+cast.save
+
+cast = TopCast.new
+cast.movie_id = movie.id
+cast.star_name = "Michael Caine"
+cast.role = "Alfred"
+cast.save
+
+cast = TopCast.new
+cast.movie_id = movie.id
+cast.star_name = "Maggie Gyllenhaal"
+cast.role = "Rachel Dawes"
+cast.save
+
+
+movie = Movie.where({movie_name: "The Dark Knight Rises"})[0]
+
+cast = TopCast.new
+cast.movie_id = "#{movie.id}"
+cast.star_name = "Christian Bale"
+cast.role = "Bruce Wayne"
+cast.save
+
+cast = TopCast.new
+cast.movie_id = "#{movie.id}"
+cast.star_name = "Gary Oldman"
+cast.role = "Commissioner Gordon"
+cast.save
+
+cast = TopCast.new
+cast.movie_id = "#{movie.id}"
+cast.star_name = "Tom Hardy"
+cast.role = "Bane"
+cast.save
+
+cast = TopCast.new
+cast.movie_id = "#{movie.id}"
+cast.star_name = "Joseph Gordon-Levitt"
+cast.role = "John Blake"
+cast.save
+
+cast = TopCast.new
+cast.movie_id = "#{movie.id}"
+cast.star_name = "Anne Hathaway"
+cast.role = "Selina Kyle"
+cast.save
+
+
 
 # Prints a header for the movies output
 puts "Movies"
